@@ -2,13 +2,12 @@ import {
   pgTable,
   serial,
   text,
-  timestamp,
   integer,
+  timestamp,
   pgEnum,
   jsonb,
 } from "drizzle-orm/pg-core";
 
-// Define the match_status enum
 export const matchStatusEnum = pgEnum("match_status", [
   "scheduled",
   "live",
@@ -32,14 +31,14 @@ export const commentary = pgTable("commentary", {
   id: serial("id").primaryKey(),
   matchId: integer("match_id")
     .notNull()
-    .references(() => matches.id, { onDelete: "cascade" }),
+    .references(() => matches.id),
   minute: integer("minute"),
   sequence: integer("sequence"),
-  period: integer("period"),
+  period: text("period"),
   eventType: text("event_type"),
   actor: text("actor"),
   team: text("team"),
-  message: text("message"),
+  message: text("message").notNull(),
   metadata: jsonb("metadata"),
   tags: text("tags").array(),
   createdAt: timestamp("created_at").notNull().defaultNow(),
