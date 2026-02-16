@@ -1,5 +1,5 @@
 {
-  "id": "39cc7349-5007-40a4-86bb-5d7570017dd9",
+  "id": "27312df6-47a7-40e3-bf71-79e23bd0f117",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -34,7 +34,7 @@
         },
         "period": {
           "name": "period",
-          "type": "integer",
+          "type": "text",
           "primaryKey": false,
           "notNull": false
         },
@@ -60,7 +60,7 @@
           "name": "message",
           "type": "text",
           "primaryKey": false,
-          "notNull": false
+          "notNull": true
         },
         "metadata": {
           "name": "metadata",
@@ -94,7 +94,7 @@
           "columnsTo": [
             "id"
           ],
-          "onDelete": "cascade",
+          "onDelete": "no action",
           "onUpdate": "no action"
         }
       },
